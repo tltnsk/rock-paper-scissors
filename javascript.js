@@ -35,7 +35,7 @@ function playRound(playerChoice) {
     tallyWins();
     displayRound(playerChoice, computerChoice, winner);
 
-    if (wins == 5) { displayEnd(); }
+    if (checkWins() == 5) { displayEnd(); }
 }
 
 function displayEnd() {
@@ -52,7 +52,7 @@ function displayEnd() {
 
 function displayRound(playerChoice, computerChoice, winner) {
     document.querySelector(".playerChoice").textContent = `You Chose: ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}`;
-    document.querySelector(".compuerChoice").textContent = `The Computer Chose: ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}`;
+    document.querySelector(".computerChoice").textContent = `The Computer Chose: ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}`;
 }
 
 function displayRoundWinner(winner) {
@@ -60,7 +60,9 @@ function displayRoundWinner(winner) {
         document.querySelector(".winner").textContent = "You won the round!";
     } else if (winner == "Computer") {
         document.querySelector(".winner").textContent = "The Computer won the round";
-    } else document.querySelector(".winner").textContent = "The round was a tie!";
+    } else {
+        document.querySelector(".winner").textContent = "The round was a tie!";
+    }
 }
 
 function tallyWins() {
@@ -69,7 +71,7 @@ function tallyWins() {
     const ties = winners.filter((item) => item == "Tie").length;
     document.querySelector(".playerScore").textContent = `Score: ${pWinCount}`;
     document.querySelector(".computerScore").textContent = `Score: ${cWinCount}`;
-    document.querySelector(".ties").textContent = `Score: ${ties}`;
+    document.querySelector(".ties").textContent = `Ties: ${ties}`;
 }
 
 function computerSelect() {
@@ -90,7 +92,7 @@ function checkWinner(choice1, choice2) {
     ) {
         return "Player";
     } else if (choice1 == choice2) return "Tie";
-    else return "Computer;"
+    else return "Computer";
 }
 
 
@@ -100,4 +102,4 @@ function setWins() {
     const ties = winners.filter((item) => item == "Tie").length;
 }
 
-startGame();
+document.addEventListener("DOMContentLoaded", startGame);
