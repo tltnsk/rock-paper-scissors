@@ -1,7 +1,8 @@
 .reset {
     display: none;
 }
-.body {
+
+body {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,5 +11,16 @@
     overflow: hidden;
     color: white;
     background-color: #21242f;
+    margin: 0 auto;
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
 }
- 
+
+button {
+    margin: 0 auto;
+    padding: 15px 10px;
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    border-radius: 5px;
+}
